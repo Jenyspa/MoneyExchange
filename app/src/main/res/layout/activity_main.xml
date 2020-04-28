@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toStartOf="@id/base_money"
         android:layout_marginTop="@dimen/twenty_dp"
         android:textSize="@dimen/thirty_sp"
-        tools:text="Moeda"/>
+        android:text="Moeda"/>
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/base_currency_value"
@@ -31,13 +31,12 @@
         android:id="@+id/base_money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
         app:layout_constraintStart_toEndOf="@id/base_currency"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="@dimen/twenty_dp"
         android:textSize="@dimen/thirty_sp"
-        tools:text="Valor"/>
+        android:text="Valor"/>
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/base_money_value"
@@ -59,7 +58,7 @@
         android:background="@drawable/my_button"
         android:layout_marginTop="@dimen/forty_dp"
         android:textSize="@dimen/twenty_sp"
-        tools:text="Converter"/>
+        android:text="Converter"/>
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/filter_currency_money"
@@ -71,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="@dimen/thirty_dp"
         android:gravity="center"
-        tools:text="Filtro"/>
+        android:text="Filtro"/>
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/currency_money_value"
@@ -84,6 +83,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="@dimen/thirty_dp"
         android:gravity="center"
+        android:text="Filtro"
         tools:text="Filtro"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
