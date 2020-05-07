@@ -2,11 +2,12 @@ package com.jenyspa.moneyexchange.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.jenyspa.moneyexchange.R
 
 class MainActivity : AppCompatActivity() {
@@ -14,9 +15,11 @@ class MainActivity : AppCompatActivity() {
     lateinit var currencyBase: EditText
     lateinit var baseMoney: EditText
     lateinit var buttonConverter: Button
-    lateinit var currencyMoneyValue: EditText
+    lateinit var currencyMoneyValue: RecyclerView
 
     lateinit var mainViewModel: MainViewModel
+
+    val adapter = MainAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         observeListExchange()
+        setupRecyclerView()
     }
 
     fun convertMoney() {
@@ -42,13 +46,16 @@ class MainActivity : AppCompatActivity() {
 
     fun observeListExchange() {
         mainViewModel.liveData.observe(this, Observer {
-            var filterResult = ""
-            for(result in it) {
-                filterResult +=  "${result.currencyName} - ${result.currencyValue} \n"
-                Log.d("MainActivity", "${result.currencyName} - ${result.currencyValue}")
-            }
-            currencyMoneyValue.setText(filterResult)
+            adapter.setList(it)
         })
+    }
+
+    fun setupRecyclerView() {
+        val linearLayoutManager = LinearLayoutManager(this)
+        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
+
+        currencyMoneyValue.layoutManager = linearLayoutManager
+        currencyMoneyValue.adapter = adapter
     }
 
 }
