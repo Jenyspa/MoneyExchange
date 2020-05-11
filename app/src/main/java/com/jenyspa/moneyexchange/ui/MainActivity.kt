@@ -1,9 +1,9 @@
 package com.jenyspa.moneyexchange.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -51,10 +51,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setupRecyclerView() {
+        /**
+         * LayoutManager define como os itens da lista serão apresentados (verticalmente,
+         * horizontalmente, em grid etc.)
+         * Tem ligação com os ViewGroups
+         */
         val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
-
         currencyMoneyValue.layoutManager = linearLayoutManager
+
         currencyMoneyValue.adapter = adapter
     }
 
