@@ -5,10 +5,10 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jenyspa.moneyexchange.R
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,15 +17,13 @@ class MainActivity : AppCompatActivity() {
     lateinit var buttonConverter: Button
     lateinit var currencyMoneyValue: RecyclerView
 
-    lateinit var mainViewModel: MainViewModel
+    val mainViewModel: MainViewModel by viewModel()
 
     val adapter = MainAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         currencyBase = findViewById(R.id.base_currency_value)
         baseMoney = findViewById(R.id.base_money_value)
@@ -62,5 +60,4 @@ class MainActivity : AppCompatActivity() {
 
         currencyMoneyValue.adapter = adapter
     }
-
 }
