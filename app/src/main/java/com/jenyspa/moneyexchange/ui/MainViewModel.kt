@@ -5,9 +5,8 @@ import androidx.lifecycle.ViewModel
 import com.jenyspa.moneyexchange.data.model.Result
 import com.jenyspa.moneyexchange.data.repository.ExchangeMoneyRepository
 
-class MainViewModel: ViewModel() {
+class MainViewModel(private val repository: ExchangeMoneyRepository): ViewModel() {
 
-    val repository = ExchangeMoneyRepository()
     val liveData = MutableLiveData<List<Result>>()
 
     fun convertMoney(currencySymbol: String, baseMoney: String) {
