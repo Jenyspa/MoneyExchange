@@ -4,7 +4,9 @@
     android:gravity="center"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingTop="12dp"
+    android:paddingBottom="12dp">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/money_view_holder"
